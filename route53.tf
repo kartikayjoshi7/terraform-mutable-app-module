@@ -1,6 +1,6 @@
 resource "aws_route53_record" "private-record" {
   count = var.LB_PRIVATE ? 1 : 0
-  zone_id = data.terraform_remote_state.vpc.PRIVATE_HOSTED_ZONE_ID
+  zone_id = data.terraform_remote_state.vpc.outputs.PRIVATE_HOSTED_ZONE_ID
   name    = "${var.COMPONENT}-${var.ENV}.roboshop.internal"
   type    = "A"
   ttl     = 300
