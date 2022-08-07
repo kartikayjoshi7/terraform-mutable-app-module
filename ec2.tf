@@ -28,7 +28,7 @@ resource "aws_ec2_tag" "spot-instances-env" {
 resource "aws_ec2_tag" "spot-instances-monitor" {
   count       = length(aws_spot_instance_request.ec2-spot)
   resource_id = aws_spot_instance_request.ec2-spot.*.spot_instance_id[count.index]
-  key         = "MONITOR"
+  key         = "Monitor"
   value       = "yes"
 }
 
