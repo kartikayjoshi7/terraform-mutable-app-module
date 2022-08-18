@@ -30,6 +30,7 @@ resource "aws_security_group" "sg" {
 
   }
 
+
   egress {
     from_port        = 0
     to_port          = 0
