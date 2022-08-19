@@ -33,4 +33,15 @@ resource "aws_ec2_tag" "spot-instances-monitor" {
 }
 
 
+resource "aws_ec2_tag" "spot-instances-component-name" {
+  count       = length(aws_spot_instance_request.ec2-spot)
+  resource_id = aws_spot_instance_request.ec2-spot.*.spot_instance_id[count.index]
+  key         = "COMPONENT"
+  value       = var.COMPONENT
+}
+
+
+
+
+
 
